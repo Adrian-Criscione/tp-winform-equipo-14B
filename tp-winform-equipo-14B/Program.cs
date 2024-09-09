@@ -16,7 +16,7 @@ namespace tp_winform_equipo_14B
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmAgregarArticulo());
         }
     }
 }
