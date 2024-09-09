@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace tp_winform_equipo_14B
 {
@@ -16,7 +17,7 @@ namespace tp_winform_equipo_14B
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAgregarArticulo());
+            Application.Run(new frmPrincipal());
         }
     }
 }

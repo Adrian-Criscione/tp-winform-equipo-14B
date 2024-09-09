@@ -262,6 +262,7 @@ namespace tp_winform_equipo_14B
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(735, 475);
             this.Name = "frmAgregarArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarArticulo";
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).EndInit();
             this.ResumeLayout(false);
