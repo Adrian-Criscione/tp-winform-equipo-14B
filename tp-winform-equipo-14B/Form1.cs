@@ -38,5 +38,11 @@ namespace tp_winform_equipo_14B
             frmAgregarCategoria ventana = new frmAgregarCategoria();
             ventana.ShowDialog();
         }
+
+        private void listarArtículosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListarArticulos ventana = new frmListarArticulos();
+            ventana.ShowDialog();
+        }
     }
 }

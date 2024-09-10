@@ -95,6 +95,7 @@
             this.listarArtículosToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D3)));
             this.listarArtículosToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.listarArtículosToolStripMenuItem.Text = "Listar Artículos";
+            this.listarArtículosToolStripMenuItem.Click += new System.EventHandler(this.listarArtículosToolStripMenuItem_Click);
             // 
             // modificarArtículoToolStripMenuItem
             // 
