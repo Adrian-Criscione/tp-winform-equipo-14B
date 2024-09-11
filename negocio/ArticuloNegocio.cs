@@ -1,9 +1,6 @@
-﻿using System;
+﻿using dominio;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using dominio;
 
 
 namespace negocio
@@ -12,14 +9,14 @@ namespace negocio
     {
         public List<Articulo> listar()
         {
-            List<Articulo> lista  = new List<Articulo>();
+            List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
             try
             {
                 datos.setearConsulta("select codigo, nombre, a.descripcion, m.Descripcion as MARCAS, c.Descripcion as CATEGORIAS, precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.id inner join CATEGORIAS c on a.idcategoria = c.Id"); // aca va la consulta.
                 datos.ejecutarLectura();
 
-                while(datos.Lector.Read())
+                while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
 
@@ -44,6 +41,33 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("insert into ARTICULOS (codigo,nombre,Descripcion,IdMarca,IdCategoria,precio) values('" + nuevo.CodigoArticulo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Marca + "','" + nuevo.Categoria + "'," + nuevo.Precio + ")");
+                //datos.setearConsulta("insert into ARTICULOS (codigo,nombre,Descripcion,IdMarca,IdCategoria,precio) values('" + nuevo.CodigoArticulo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Marca + "','" + nuevo.Categoria + "'," + nuevo.Precio")");
+                //datos.setearConsulta("insert into POKEMONS ( numero, nombre, descripcion, activo) values(" + nuevo.Numero + ", '" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Tipo + "','" + nuevo.Debilidad + "',1)");
+                datos.ejecutarAccion();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void modificar(Articulo modificar)
+        {
+
         }
     }
 }

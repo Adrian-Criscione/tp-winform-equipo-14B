@@ -31,9 +31,9 @@ namespace tp_winform_equipo_14B
         {
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.btnCancelarCategoria = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombreMarca = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAgregarCategoria
@@ -60,41 +60,41 @@ namespace tp_winform_equipo_14B
             this.btnCancelarCategoria.Text = "Cancelar";
             this.btnCancelarCategoria.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // txtNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(69, 186);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre :";
+            this.txtNombre.AutoSize = true;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(63, 60);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(70, 16);
+            this.txtNombre.TabIndex = 2;
+            this.txtNombre.Text = "Nombre :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(94, 53);
+            this.label2.Location = new System.Drawing.Point(96, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(252, 31);
             this.label2.TabIndex = 3;
             this.label2.Text = "Agregar Categoría";
             // 
-            // textBox1
+            // txtNombreMarca
             // 
-            this.textBox1.Location = new System.Drawing.Point(158, 186);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtNombreMarca.Location = new System.Drawing.Point(152, 60);
+            this.txtNombreMarca.Name = "txtNombreMarca";
+            this.txtNombreMarca.Size = new System.Drawing.Size(151, 20);
+            this.txtNombreMarca.TabIndex = 4;
             // 
             // frmAgregarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 461);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombreMarca);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnCancelarCategoria);
             this.Controls.Add(this.btnAgregarCategoria);
             this.MaximizeBox = false;
@@ -103,7 +103,7 @@ namespace tp_winform_equipo_14B
             this.MinimumSize = new System.Drawing.Size(435, 500);
             this.Name = "frmAgregarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAgregarCategoria";
+            this.Text = "Agregar Categoria";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,8 +113,8 @@ namespace tp_winform_equipo_14B
 
         private System.Windows.Forms.Button btnAgregarCategoria;
         private System.Windows.Forms.Button btnCancelarCategoria;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombreMarca;
     }
 }
