@@ -48,8 +48,6 @@ namespace negocio
             try
             {
                 datos.setearConsulta("insert into ARTICULOS (codigo,nombre,Descripcion,IdMarca,IdCategoria,precio) values('" + nuevo.CodigoArticulo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Marca + "','" + nuevo.Categoria + "'," + nuevo.Precio + ")");
-                //datos.setearConsulta("insert into ARTICULOS (codigo,nombre,Descripcion,IdMarca,IdCategoria,precio) values('" + nuevo.CodigoArticulo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Marca + "','" + nuevo.Categoria + "'," + nuevo.Precio")");
-                //datos.setearConsulta("insert into POKEMONS ( numero, nombre, descripcion, activo) values(" + nuevo.Numero + ", '" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Tipo + "','" + nuevo.Debilidad + "',1)");
                 datos.ejecutarAccion();
 
 
