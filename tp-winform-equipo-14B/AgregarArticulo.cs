@@ -95,19 +95,6 @@ namespace tp_winform_equipo_14B
                 MessageBox.Show(ex.ToString());
             }
             
-            //TODO: agregar los cbomarca y cbo categorio con la siguiente logica falta agregar los marcaNEgocio y CategoriaNEgocio
-            //ElementoNegocio elementoNegocio = new ElementoNegocio();
-            //try
-            //{
-            //    cboTipo.DataSource = elementoNegocio.listar();
-            //    cboDebilidad.DataSource = elementoNegocio.listar();
-
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show(ex.ToString());
-            //}
         }
     }
 }
