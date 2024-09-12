@@ -85,6 +85,7 @@ namespace tp_winform_equipo_14B
             this.Name = "frmListarMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListarMarcas";
+            this.Load += new System.EventHandler(this.frmListarMarcas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwListarMarcas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -27,5 +27,7 @@ namespace tp_winform_equipo_14B
             dgvListarArticulos.DataSource = ListaArticulo;
 
         }
+
+       
     }
 }

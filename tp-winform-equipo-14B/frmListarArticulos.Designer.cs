@@ -39,6 +39,7 @@
             this.dgvListarArticulos.Name = "dgvListarArticulos";
             this.dgvListarArticulos.Size = new System.Drawing.Size(728, 238);
             this.dgvListarArticulos.TabIndex = 0;
+    
             // 
             // frmListarArticulos
             // 
