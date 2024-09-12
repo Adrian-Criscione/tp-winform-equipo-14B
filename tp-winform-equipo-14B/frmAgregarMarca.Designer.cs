@@ -59,6 +59,7 @@ namespace tp_winform_equipo_14B
             this.btnAgregarMarca.TabIndex = 1;
             this.btnAgregarMarca.Text = "Agregar";
             this.btnAgregarMarca.UseVisualStyleBackColor = true;
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
             // 
             // btnCancelar
             // 
@@ -81,7 +82,7 @@ namespace tp_winform_equipo_14B
             this.lblNombreMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreMarca.Location = new System.Drawing.Point(51, 176);
             this.lblNombreMarca.Name = "lblNombreMarca";
-            this.lblNombreMarca.Size = new System.Drawing.Size(71, 16);
+            this.lblNombreMarca.Size = new System.Drawing.Size(70, 16);
             this.lblNombreMarca.TabIndex = 3;
             this.lblNombreMarca.Text = "Nombre :";
             // 

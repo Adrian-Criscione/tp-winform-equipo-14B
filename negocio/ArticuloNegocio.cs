@@ -13,42 +13,53 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select codigo, nombre, a.descripcion, m.Descripcion as MARCAS, c.Descripcion as CATEGORIAS, precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.id inner join CATEGORIAS c on a.idcategoria = c.Id"); // aca va la consulta.
+                //datos.setearConsulta("select codigo, nombre, a.descripcion, m.Descripcion as MARCAS, c.Descripcion as CATEGORIAS, precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.id inner join CATEGORIAS c on a.idcategoria = c.Id"); // aca va la consulta.
+                datos.setearConsulta("SELECT A.id,A.Codigo, A.Nombre, A.Descripcion AS ArticuloDescripcion, m.id as IdMarca, M.Descripcion AS Marcas,c.Id as IdCategoria, C.Descripcion AS Categorias, A.Precio, I.ImagenUrl FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo"); // aca va la consulta.
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
 
-                    if (!(datos.Lector["codigo"] is DBNull))
+                    aux.Id = (int)datos.Lector["Id"];
+
+                    if (!(datos.Lector["Codigo"] is DBNull))
                     {
-                        aux.CodigoArticulo = (string)datos.Lector["codigo"];
+                        aux.CodigoArticulo = (string)datos.Lector["Codigo"];
 
                     }
-                    if (!(datos.Lector["nombre"] is DBNull))
+                    if (!(datos.Lector["Nombre"] is DBNull))
                     {
 
-                        aux.Nombre = (string)datos.Lector["nombre"];
+                        aux.Nombre = (string)datos.Lector["Nombre"];
 
                     }
-                    if (!(datos.Lector["Descripcion"] is DBNull))
+                    if (!(datos.Lector["ArticuloDescripcion"] is DBNull))
                     {
-                        aux.Descripcion = (string)datos.Lector["Descripcion"];
+                        aux.Descripcion = (string)datos.Lector["ArticuloDescripcion"];
                     }
-                    if (!(datos.Lector["Marcas"] is DBNull))
+
+                    if (!(datos.Lector["Marcas"] is DBNull) || !(datos.Lector["IdMarca"] is DBNull))
                     {
                         aux.Marca = new Marca();
+                        aux.Marca.Id = (int)datos.Lector["IdMarca"];
                         aux.Marca.Descripcion = (string)datos.Lector["Marcas"];
                     }
-                    if (!(datos.Lector["Categorias"] is DBNull))
+
+                    if (!(datos.Lector["Categorias"] is DBNull) || !(datos.Lector["IdCategoria"] is DBNull))
                     {
                         aux.Categoria = new Categoria();
+                        aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                         aux.Categoria.Descripcion = (string)datos.Lector["Categorias"];
                     }
 
-                    if (!(datos.Lector["precio"] is DBNull))
+                    if (!(datos.Lector["Precio"] is DBNull))
                     {
-                        aux.Precio = (decimal)datos.Lector["precio"];
+                        aux.Precio = (decimal)datos.Lector["Precio"];
+                    }
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    {
+                        aux.Imagen = (string)datos.Lector["ImagenUrl"];
                     }
 
                     lista.Add(aux);
@@ -98,7 +109,33 @@ namespace negocio
         }
         public void modificar(Articulo modificar)
         {
+            AccesoDatos datos = new AccesoDatos();
 
+            try
+            {
+                datos.setearConsulta("update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, idcategoria = @IdCategoria, Precio = @Precio where id = @Id");
+                datos.setearParametro("@codigo", modificar.CodigoArticulo);
+                datos.setearParametro("@Nombre", modificar.Nombre);
+                datos.setearParametro("@Descripcion", modificar.Descripcion);
+                //datos.setearParametro("@Imagen", modificar.Imagen);
+                datos.setearParametro("@IdMarca", modificar.Marca.Id);
+                datos.setearParametro("@IdCategoria", modificar.Categoria.Id);
+                datos.setearParametro("@Precio", modificar.Precio);
+                datos.setearParametro("@Id", modificar.Id);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
     }
 }
+

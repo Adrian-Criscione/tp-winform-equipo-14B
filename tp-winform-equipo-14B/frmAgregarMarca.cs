@@ -21,5 +21,10 @@ namespace tp_winform_equipo_14B
         {
             Close();
         }
+
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -115,7 +115,7 @@ namespace tp_winform_equipo_14B
             // 
             this.lblPrecioArticulo.AutoSize = true;
             this.lblPrecioArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioArticulo.Location = new System.Drawing.Point(71, 313);
+            this.lblPrecioArticulo.Location = new System.Drawing.Point(71, 350);
             this.lblPrecioArticulo.Name = "lblPrecioArticulo";
             this.lblPrecioArticulo.Size = new System.Drawing.Size(60, 16);
             this.lblPrecioArticulo.TabIndex = 6;
@@ -125,7 +125,7 @@ namespace tp_winform_equipo_14B
             // 
             this.lblUrlImagen.AutoSize = true;
             this.lblUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUrlImagen.Location = new System.Drawing.Point(31, 350);
+            this.lblUrlImagen.Location = new System.Drawing.Point(31, 318);
             this.lblUrlImagen.Name = "lblUrlImagen";
             this.lblUrlImagen.Size = new System.Drawing.Size(100, 16);
             this.lblUrlImagen.TabIndex = 7;
@@ -188,7 +188,7 @@ namespace tp_winform_equipo_14B
             this.txtPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrecio.Enabled = false;
-            this.txtPrecio.Location = new System.Drawing.Point(142, 309);
+            this.txtPrecio.Location = new System.Drawing.Point(142, 346);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(152, 20);
             this.txtPrecio.TabIndex = 13;
@@ -198,7 +198,7 @@ namespace tp_winform_equipo_14B
             this.txtImagen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtImagen.Enabled = false;
-            this.txtImagen.Location = new System.Drawing.Point(142, 346);
+            this.txtImagen.Location = new System.Drawing.Point(142, 314);
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(152, 20);
             this.txtImagen.TabIndex = 14;

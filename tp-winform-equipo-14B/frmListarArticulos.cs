@@ -22,12 +22,62 @@ namespace tp_winform_equipo_14B
 
         private void frmListarArticulos_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio articulo = new ArticuloNegocio();
-            ListaArticulo = articulo.listar();
-            dgvListarArticulos.DataSource = ListaArticulo;
+            cargar();
 
         }
+        private void dgvListarArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvListarArticulos.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.Imagen);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.Load(imagen);
 
-       
+            }
+            catch (Exception)
+            {
+
+                pbxArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+        }
+
+        private void cargar()
+        {
+            ArticuloNegocio articulo = new ArticuloNegocio();
+            try
+            {
+
+                ListaArticulo = articulo.listar();
+                dgvListarArticulos.DataSource = ListaArticulo;
+                dgvListarArticulos.Columns["imagen"].Visible = false;
+                dgvListarArticulos.Columns["Id"].Visible = false;
+                pbxArticulo.Load(ListaArticulo[0].Imagen); //sirve para mostrar las imagenes pero se pincha el programa asi que hay que revisarlo por el momento no funcioan.
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAgregarArticulo agregarArticulo = new frmAgregarArticulo();
+            agregarArticulo.ShowDialog();
+            cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            //seleccionar el articulo para pasarlo al constructor de la clase frmagregarArticulo
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvListarArticulos.CurrentRow.DataBoundItem;
+
+            frmAgregarArticulo modificarArticulo = new frmAgregarArticulo(seleccionado);
+            modificarArticulo.ShowDialog();
+            cargar();
+        }
     }
 }

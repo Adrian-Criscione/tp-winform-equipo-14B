@@ -16,9 +16,20 @@ namespace tp_winform_equipo_14B
 {
     public partial class frmAgregarArticulo : Form
     {
+        private Articulo articulo = null;
         public frmAgregarArticulo()
         {
             InitializeComponent();
+        }
+        //CONSTRUCTOR PARA PODER MODIFICAAR ARTICULOS
+        public frmAgregarArticulo(Articulo articulo)
+        {
+            
+            InitializeComponent();
+            this.articulo = articulo;
+            //propiedades que se modifican para la ventana de modificar
+            Text = "Modificar Articulo";
+            lblAgregarArticulo.Text = "Modificar Articulo";
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -41,22 +52,36 @@ namespace tp_winform_equipo_14B
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
-            Articulo nuevo = new Articulo();
+            
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
-                nuevo.CodigoArticulo = txtCodigo.Text;
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Descripcion = txtDescripcion.Text;
-                nuevo.Marca = (Marca)cboMarcaArticulo.SelectedItem;
-                nuevo.Categoria = (Categoria)cboCategoriaArticulo.SelectedItem;
-                nuevo.Precio = decimal.Parse(txtPrecio.Text);
-                nuevo.Imagen = txtImagen.Text;
+                if(articulo == null)
+                { 
+                    articulo = new Articulo();
+                }
+                  
+                articulo.CodigoArticulo = txtCodigo.Text;
+                articulo.Nombre = txtNombre.Text;
+                articulo.Descripcion = txtDescripcion.Text;
+                articulo.Marca = (Marca)cboMarcaArticulo.SelectedItem;
+                articulo.Categoria = (Categoria)cboCategoriaArticulo.SelectedItem;
+                articulo.Precio = decimal.Parse(txtPrecio.Text);
+                articulo.Imagen = txtImagen.Text;
 
-                negocio.agregar(nuevo);
+                if(articulo.Id != 0)
+                {
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Articulo " + txtCodigo.Text + " modificado con éxito");
 
-                MessageBox.Show("Articulo " + txtCodigo.Text + " agregado con éxito");
+                }
+                else
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Articulo " + txtCodigo.Text + " agregado con éxito");
+                }
+                
                 this.Close();
                 
                 btnAgregarArticulo.Visible = false;
@@ -85,9 +110,45 @@ namespace tp_winform_equipo_14B
             
             try
             {
-                cboMarcaArticulo.DataSource = marcaNegocio.listar();
-                cboCategoriaArticulo.DataSource = categoriaNegocio.listar();
+                //SI entra por modificar se cambian estos valores en las props del formulario
+                if (lblAgregarArticulo.Text == "Modificar Articulo")
+                {
+                    btnAgregarArticulo.Visible = true;
+                    btnNuevo.Visible = false;
+                    txtCodigo.Enabled = true;
+                    txtNombre.Enabled = true;
+                    txtDescripcion.Enabled = true;
+                    txtPrecio.Enabled = true;
+                    txtImagen.Enabled = true;
+                    cboCategoriaArticulo.Enabled = true;
+                    cboMarcaArticulo.Enabled = true;
+                    btnAgregarArticulo.Text = "Modifcar";
+                }//fin
 
+                cboMarcaArticulo.DataSource = marcaNegocio.listar();
+                cboMarcaArticulo.ValueMember = "Id";
+                cboMarcaArticulo.DisplayMember = "Descripcion";
+
+                cboCategoriaArticulo.DataSource = categoriaNegocio.listar();
+                cboCategoriaArticulo.ValueMember = "Id";
+                cboCategoriaArticulo.DisplayMember = "Descripcion";
+
+                 if(articulo != null)
+                {
+                    txtCodigo.Text = articulo.CodigoArticulo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    txtPrecio.Text = articulo.Precio.ToString();
+                    cargarImagen(articulo.Imagen);
+                    cboMarcaArticulo.SelectedValue = articulo.Marca.Id;
+                    cboCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
+          
+                      
+                        
+
+                    
+                    
+                }
             }
             catch (Exception ex)
             {
@@ -95,6 +156,19 @@ namespace tp_winform_equipo_14B
                 MessageBox.Show(ex.ToString());
             }
             
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxImagenArticulo.Load(imagen);
+            }
+            catch (Exception)
+            {
+
+                pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+
+            }
         }
     }
 }
