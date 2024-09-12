@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace tp_winform_equipo_14B
 {
-    public partial class frmAgregarMarca : Form
+    public partial class frmListarMarcas : Form
     {
-        public frmAgregarMarca()
+        public frmListarMarcas()
         {
             InitializeComponent();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             Close();
         }

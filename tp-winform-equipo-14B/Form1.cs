@@ -44,5 +44,11 @@ namespace tp_winform_equipo_14B
             frmListarArticulos ventana = new frmListarArticulos();
             ventana.ShowDialog();
         }
+
+        private void menuListarMarcas_Click(object sender, EventArgs e)
+        {
+            frmListarMarcas ventana = new frmListarMarcas();
+            ventana.ShowDialog();
+        }
     }
 }

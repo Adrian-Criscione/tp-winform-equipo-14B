@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 namespace negocio
 {
     public class MarcaNegocio
     {
+       
         public List<Marca> listar()
         {
             List<Marca> lista = new List<Marca>();
@@ -36,5 +38,39 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregarMarca(Marca nuevaMarca) 
+        {
+            AccesoDatos datosMarcas = new AccesoDatos();
+
+            try
+            {
+               // datosMarcas.setearConsulta("INSERT INTO MARCAS VALUE"('"+ nuevaMarca.Descripcion +" ')"");
+                //datosMarcas.ejecutarAccion();
+            }
+            catch ( Exception ex)
+            {
+
+                throw;
+            }
+        
+        
+        
+        }
+
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
 }
