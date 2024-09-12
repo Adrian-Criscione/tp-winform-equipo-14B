@@ -20,14 +20,37 @@ namespace negocio
                 {
                     Articulo aux = new Articulo();
 
-                    aux.CodigoArticulo = (string)datos.Lector["codigo"];
-                    aux.Nombre = (string)datos.Lector["nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)datos.Lector["Marcas"];
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categorias"];
-                    aux.Precio = (decimal)datos.Lector["precio"];
+                    if (!(datos.Lector["codigo"] is DBNull))
+                    {
+                        aux.CodigoArticulo = (string)datos.Lector["codigo"];
+
+                    }
+                    if (!(datos.Lector["nombre"] is DBNull))
+                    {
+
+                        aux.Nombre = (string)datos.Lector["nombre"];
+
+                    }
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                    {
+                        aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    }
+                    if (!(datos.Lector["Marcas"] is DBNull))
+                    {
+                        aux.Marca = new Marca();
+                        aux.Marca.Descripcion = (string)datos.Lector["Marcas"];
+                    }
+                    if (!(datos.Lector["Categorias"] is DBNull))
+                    {
+                        aux.Categoria = new Categoria();
+                        aux.Categoria.Descripcion = (string)datos.Lector["Categorias"];
+                    }
+
+                    if (!(datos.Lector["precio"] is DBNull))
+                    {
+                        aux.Precio = (decimal)datos.Lector["precio"];
+                    }
+
                     lista.Add(aux);
                 }
                 return lista;
@@ -47,15 +70,17 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                //datos.setearConsulta("insert into ARTICULOS (codigo,nombre,Descripcion,IdMarca,IdCategoria,precio) values('" + nuevo.CodigoArticulo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "','" + nuevo.Marca.Id + "','" + nuevo.Categoria.Id + "'," + nuevo.Precio + ")");
+                //INSERT DE LA CONSULTA
                 datos.setearConsulta("insert into ARTICULOS (codigo,nombre,Descripcion,IdMarca,IdCategoria,precio) values(@CodigoArticulo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                //SETEAR LOS VALORES A LAS VARIABLES QUE SE PASAN EN LA CONSULTA.
                 datos.setearParametro("@CodigoArticulo", nuevo.CodigoArticulo);
                 datos.setearParametro("@Nombre", nuevo.Nombre);
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
-                datos.setearParametro("@IdMarca",nuevo.Marca.Id);
+                datos.setearParametro("@IdMarca", nuevo.Marca.Id);
                 datos.setearParametro("@IdCategoria", nuevo.Categoria.Id);
-                datos.setearParametro("@Precio", nuevo.Precio); 
-                
+                datos.setearParametro("@Precio", nuevo.Precio);
+
+                //EJECUTA EL OPEN Y LA QUERY 
                 datos.ejecutarAccion();
 
 
