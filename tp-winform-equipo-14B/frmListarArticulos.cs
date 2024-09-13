@@ -79,5 +79,29 @@ namespace tp_winform_equipo_14B
             modificarArticulo.ShowDialog();
             cargar();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado = new Articulo();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Desea eliminar el registro seleccionado?", "Elimar",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+
+                if(respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvListarArticulos.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                    cargar();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
