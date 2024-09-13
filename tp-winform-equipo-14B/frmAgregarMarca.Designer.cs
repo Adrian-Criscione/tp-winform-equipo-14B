@@ -33,7 +33,7 @@ namespace tp_winform_equipo_14B
             this.btnAgregarMarca = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblNombreMarca = new System.Windows.Forms.Label();
-            this.txtNombreMarca = new System.Windows.Forms.TextBox();
+            this.txtDescripcionMarca = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblAgregarMarca
@@ -82,18 +82,18 @@ namespace tp_winform_equipo_14B
             this.lblNombreMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreMarca.Location = new System.Drawing.Point(51, 176);
             this.lblNombreMarca.Name = "lblNombreMarca";
-            this.lblNombreMarca.Size = new System.Drawing.Size(70, 16);
+            this.lblNombreMarca.Size = new System.Drawing.Size(99, 16);
             this.lblNombreMarca.TabIndex = 3;
-            this.lblNombreMarca.Text = "Nombre :";
+            this.lblNombreMarca.Text = "Descripción :";
             // 
-            // txtNombreMarca
+            // txtDescripcionMarca
             // 
-            this.txtNombreMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDescripcionMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNombreMarca.Location = new System.Drawing.Point(153, 175);
-            this.txtNombreMarca.Name = "txtNombreMarca";
-            this.txtNombreMarca.Size = new System.Drawing.Size(195, 20);
-            this.txtNombreMarca.TabIndex = 4;
+            this.txtDescripcionMarca.Location = new System.Drawing.Point(153, 175);
+            this.txtDescripcionMarca.Name = "txtDescripcionMarca";
+            this.txtDescripcionMarca.Size = new System.Drawing.Size(195, 20);
+            this.txtDescripcionMarca.TabIndex = 4;
             // 
             // frmAgregarMarca
             // 
@@ -101,7 +101,7 @@ namespace tp_winform_equipo_14B
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(419, 461);
-            this.Controls.Add(this.txtNombreMarca);
+            this.Controls.Add(this.txtDescripcionMarca);
             this.Controls.Add(this.lblNombreMarca);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregarMarca);
@@ -124,6 +124,6 @@ namespace tp_winform_equipo_14B
         private System.Windows.Forms.Button btnAgregarMarca;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblNombreMarca;
-        private System.Windows.Forms.TextBox txtNombreMarca;
+        private System.Windows.Forms.TextBox txtDescripcionMarca;
     }
 }

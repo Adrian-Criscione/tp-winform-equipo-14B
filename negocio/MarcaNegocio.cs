@@ -45,18 +45,26 @@ namespace negocio
 
             try
             {
-               // datosMarcas.setearConsulta("INSERT INTO MARCAS VALUE"('"+ nuevaMarca.Descripcion +" ')"");
-                //datosMarcas.ejecutarAccion();
+               
+                datosMarcas.setearConsulta("INSERT INTO MARCAS(Descripcion) VALUES (@Descripcion)");
+                datosMarcas.setearParametro("@Descripcion", nuevaMarca.Descripcion);
+               
+               
+                datosMarcas.ejecutarAccion();
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
 
                 throw ex;
             }
-        
-        
-        
+            finally
+
+            {
+                datosMarcas.cerrarConexion();
+            }
         }
+
+    }
 
 
 
@@ -66,11 +74,3 @@ namespace negocio
 
 
 
-
-
-
-
-
-
-
-}
