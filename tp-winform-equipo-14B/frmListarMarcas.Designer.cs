@@ -30,9 +30,10 @@ namespace tp_winform_equipo_14B
         private void InitializeComponent()
         {
             this.lblTituloListarMarcas = new System.Windows.Forms.Label();
-            this.dgwListarMarcas = new System.Windows.Forms.DataGridView();
+            this.dgvListarMarcas = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwListarMarcas)).BeginInit();
+            this.btnModificar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListarMarcas)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTituloListarMarcas
@@ -46,24 +47,24 @@ namespace tp_winform_equipo_14B
             this.lblTituloListarMarcas.TabIndex = 0;
             this.lblTituloListarMarcas.Text = "Listado De Marcas Registradas";
             // 
-            // dgwListarMarcas
+            // dgvListarMarcas
             // 
-            this.dgwListarMarcas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvListarMarcas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgwListarMarcas.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgwListarMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwListarMarcas.Location = new System.Drawing.Point(44, 177);
-            this.dgwListarMarcas.Name = "dgwListarMarcas";
-            this.dgwListarMarcas.Size = new System.Drawing.Size(352, 150);
-            this.dgwListarMarcas.TabIndex = 1;
+            this.dgvListarMarcas.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dgvListarMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListarMarcas.Location = new System.Drawing.Point(44, 177);
+            this.dgvListarMarcas.Name = "dgvListarMarcas";
+            this.dgvListarMarcas.Size = new System.Drawing.Size(352, 150);
+            this.dgvListarMarcas.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(161, 371);
+            this.button1.Location = new System.Drawing.Point(285, 362);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 45);
             this.button1.TabIndex = 2;
@@ -71,14 +72,28 @@ namespace tp_winform_equipo_14B
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnModificar
+            // 
+            this.btnModificar.FlatAppearance.BorderSize = 2;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Location = new System.Drawing.Point(44, 362);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(111, 45);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // frmListarMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(447, 450);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dgwListarMarcas);
+            this.Controls.Add(this.dgvListarMarcas);
             this.Controls.Add(this.lblTituloListarMarcas);
             this.MaximumSize = new System.Drawing.Size(696, 489);
             this.MinimumSize = new System.Drawing.Size(463, 489);
@@ -86,7 +101,7 @@ namespace tp_winform_equipo_14B
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListarMarcas";
             this.Load += new System.EventHandler(this.frmListarMarcas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwListarMarcas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListarMarcas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,7 +110,8 @@ namespace tp_winform_equipo_14B
         #endregion
 
         private System.Windows.Forms.Label lblTituloListarMarcas;
-        private System.Windows.Forms.DataGridView dgwListarMarcas;
+        private System.Windows.Forms.DataGridView dgvListarMarcas;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

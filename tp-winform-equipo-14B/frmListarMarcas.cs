@@ -15,6 +15,7 @@ namespace tp_winform_equipo_14B
     public partial class frmListarMarcas : Form
     {
         private List<Marca> ListaMarcas;
+
         public frmListarMarcas()
         {
             InitializeComponent();
@@ -29,8 +30,14 @@ namespace tp_winform_equipo_14B
         {
             MarcaNegocio marca = new MarcaNegocio();
             ListaMarcas = marca.listar();
-            dgwListarMarcas.DataSource = ListaMarcas;
+            dgvListarMarcas.DataSource = ListaMarcas;
            
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            frmModificarMarca ventana = new frmModificarMarca();
+            ventana.ShowDialog(); 
         }
     }
 }

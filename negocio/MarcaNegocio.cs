@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+
 namespace negocio
 {
     public class MarcaNegocio
@@ -62,6 +63,29 @@ namespace negocio
             {
                 datosMarcas.cerrarConexion();
             }
+        }
+
+        public void modificarMarca (Marca modificar) 
+        {
+            AccesoDatos datosMarca = new AccesoDatos();
+
+            try
+            {
+                datosMarca.setearConsulta("UPDATE MARCAS SET Descripcion = @Descripcion WHERE Id = @Id");
+                datosMarca.setearParametro("@Id", modificar.Id);
+                datosMarca.setearParametro("@Descripcion", modificar.Descripcion);
+                datosMarca.ejecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally 
+            {
+                datosMarca.cerrarConexion();
+            }
+
         }
 
     }
