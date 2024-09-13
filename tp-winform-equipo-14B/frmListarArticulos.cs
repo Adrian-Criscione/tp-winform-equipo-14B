@@ -103,5 +103,9 @@ namespace tp_winform_equipo_14B
                 MessageBox.Show(ex.ToString());
             }
         }
+        public void metodoPruebaGIT()
+        {
+            //borrar
+        }
     }
 }
