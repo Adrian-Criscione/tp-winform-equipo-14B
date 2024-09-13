@@ -40,12 +40,13 @@ namespace tp_winform_equipo_14B
 
                 MessageBox.Show(ex.ToString());
             }
-            frmAgregarMarca agregarMarca = new frmAgregarMarca();
-            agregarMarca.ShowDialog();
+            
             
                
                 
             
         }
+
+        
     }
 }
