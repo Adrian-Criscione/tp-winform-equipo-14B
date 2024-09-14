@@ -33,7 +33,7 @@ namespace tp_winform_equipo_14B
             dgvListarMarcas.DataSource = ListaMarcas;
            
         }
-
+        
         private void btnModificar_Click(object sender, EventArgs e)
         {
             frmModificarMarca ventana = new frmModificarMarca();

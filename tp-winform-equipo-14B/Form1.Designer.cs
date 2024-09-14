@@ -188,6 +188,7 @@
             this.listarCategoríasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.listarCategoríasToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.listarCategoríasToolStripMenuItem.Text = "Listar Categorías";
+            this.listarCategoríasToolStripMenuItem.Click += new System.EventHandler(this.listarCategoríasToolStripMenuItem_Click);
             // 
             // modificarCategoríaToolStripMenuItem
             // 
