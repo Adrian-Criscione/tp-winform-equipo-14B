@@ -33,7 +33,7 @@ namespace tp_winform_equipo_14B
             this.btnCancelarCategoria = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNombreMarca = new System.Windows.Forms.TextBox();
+            this.txtNombreCategoria = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAgregarCategoria
@@ -47,6 +47,7 @@ namespace tp_winform_equipo_14B
             this.btnAgregarCategoria.TabIndex = 0;
             this.btnAgregarCategoria.Text = "Agregar";
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
+            this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
             // 
             // btnCancelarCategoria
             // 
@@ -59,6 +60,7 @@ namespace tp_winform_equipo_14B
             this.btnCancelarCategoria.TabIndex = 1;
             this.btnCancelarCategoria.Text = "Cancelar";
             this.btnCancelarCategoria.UseVisualStyleBackColor = true;
+            this.btnCancelarCategoria.Click += new System.EventHandler(this.btnCancelarCategoria_Click);
             // 
             // txtNombre
             // 
@@ -80,19 +82,19 @@ namespace tp_winform_equipo_14B
             this.label2.TabIndex = 3;
             this.label2.Text = "Agregar Categoría";
             // 
-            // txtNombreMarca
+            // txtNombreCategoria
             // 
-            this.txtNombreMarca.Location = new System.Drawing.Point(152, 60);
-            this.txtNombreMarca.Name = "txtNombreMarca";
-            this.txtNombreMarca.Size = new System.Drawing.Size(151, 20);
-            this.txtNombreMarca.TabIndex = 4;
+            this.txtNombreCategoria.Location = new System.Drawing.Point(152, 60);
+            this.txtNombreCategoria.Name = "txtNombreCategoria";
+            this.txtNombreCategoria.Size = new System.Drawing.Size(151, 20);
+            this.txtNombreCategoria.TabIndex = 4;
             // 
             // frmAgregarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 461);
-            this.Controls.Add(this.txtNombreMarca);
+            this.Controls.Add(this.txtNombreCategoria);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.btnCancelarCategoria);
@@ -115,6 +117,6 @@ namespace tp_winform_equipo_14B
         private System.Windows.Forms.Button btnCancelarCategoria;
         private System.Windows.Forms.Label txtNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombreMarca;
+        private System.Windows.Forms.TextBox txtNombreCategoria;
     }
 }
