@@ -46,6 +46,13 @@ namespace tp_winform_equipo_14B
                     return;
                 }
 
+                if (categoriaNegocio.ExisteCategoria(categoria))
+                {
+                    MessageBox.Show("Esta categoría ya existe. No se pueden agregar duplicados.");
+                    return;
+                }
+
+
                 newcat.Descripcion = categoria;
                 categoriaNegocio.agregarCategoria(newcat);
                 MessageBox.Show("Categoría agregada con éxito");

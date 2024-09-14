@@ -86,6 +86,31 @@ namespace negocio
         }
 
 
+        public bool ExisteCategoria(string newcat)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Consulta para buscar una categoría con la misma descripción
+                datos.setearConsulta("SELECT COUNT(*) FROM CATEGORIAS WHERE Descripcion = @Descripcion");
+                datos.setearParametro("@Descripcion", newcat);
+                datos.ejecutarLectura();
 
+                if (datos.Lector.Read())
+                {
+                    int count = (int)datos.Lector[0];
+                    return count > 0; // Devuelve true si ya existe la categoría
+                }
+                return false; // No encontró ninguna coincidencia
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
