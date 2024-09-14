@@ -33,15 +33,11 @@ namespace tp_winform_equipo_14B
 
         private void btnAceptarCambio_Click(object sender, EventArgs e)
         {
-            // Marca seleccionada = new Marca();
-            MarcaNegocio negocioMarca = new MarcaNegocio();
-            //ArticuloNegocio negocioArticulo = new ArticuloNegocio();
-            //List<Articulo> listadoArticulos = negocioArticulo.listar();
             
+            MarcaNegocio negocioMarca = new MarcaNegocio();
             try
             {
-               
-       
+              
                 seleccionada.Descripcion = txtNuevaDescripcion.Text;
                 if(seleccionada.Id !=0)
                 {

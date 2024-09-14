@@ -39,5 +39,11 @@ namespace tp_winform_equipo_14B
             frmModificarMarca ventana = new frmModificarMarca();
             ventana.ShowDialog(); 
         }
+
+        private void btnEliminarMarca_Click(object sender, EventArgs e)
+        {
+            frmEliminarMarca ventana = new frmEliminarMarca();
+            ventana.ShowDialog();
+        }
     }
 }

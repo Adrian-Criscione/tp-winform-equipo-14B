@@ -31,8 +31,9 @@ namespace tp_winform_equipo_14B
         {
             this.lblTituloListarMarcas = new System.Windows.Forms.Label();
             this.dgvListarMarcas = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminarMarca = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarMarcas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,30 +55,30 @@ namespace tp_winform_equipo_14B
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListarMarcas.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvListarMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListarMarcas.Location = new System.Drawing.Point(44, 177);
+            this.dgvListarMarcas.Location = new System.Drawing.Point(18, 177);
             this.dgvListarMarcas.Name = "dgvListarMarcas";
-            this.dgvListarMarcas.Size = new System.Drawing.Size(352, 150);
+            this.dgvListarMarcas.Size = new System.Drawing.Size(403, 150);
             this.dgvListarMarcas.TabIndex = 1;
             // 
-            // button1
+            // btnCancelar
             // 
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(285, 362);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 45);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancelar.FlatAppearance.BorderSize = 2;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Location = new System.Drawing.Point(310, 362);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(111, 45);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.FlatAppearance.BorderSize = 2;
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Location = new System.Drawing.Point(44, 362);
+            this.btnModificar.Location = new System.Drawing.Point(18, 362);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(111, 45);
             this.btnModificar.TabIndex = 4;
@@ -85,14 +86,28 @@ namespace tp_winform_equipo_14B
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnEliminarMarca
+            // 
+            this.btnEliminarMarca.FlatAppearance.BorderSize = 2;
+            this.btnEliminarMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnEliminarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarMarca.Location = new System.Drawing.Point(168, 362);
+            this.btnEliminarMarca.Name = "btnEliminarMarca";
+            this.btnEliminarMarca.Size = new System.Drawing.Size(111, 45);
+            this.btnEliminarMarca.TabIndex = 5;
+            this.btnEliminarMarca.Text = "Eliminar";
+            this.btnEliminarMarca.UseVisualStyleBackColor = true;
+            this.btnEliminarMarca.Click += new System.EventHandler(this.btnEliminarMarca_Click);
+            // 
             // frmListarMarcas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(447, 450);
+            this.Controls.Add(this.btnEliminarMarca);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvListarMarcas);
             this.Controls.Add(this.lblTituloListarMarcas);
             this.MaximumSize = new System.Drawing.Size(696, 489);
@@ -111,7 +126,8 @@ namespace tp_winform_equipo_14B
 
         private System.Windows.Forms.Label lblTituloListarMarcas;
         private System.Windows.Forms.DataGridView dgvListarMarcas;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminarMarca;
     }
 }

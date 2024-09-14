@@ -39,8 +39,8 @@
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAgregarMarca = new System.Windows.Forms.ToolStripMenuItem();
             this.menuListarMarcas = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarMarcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarMarcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarMarcaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarMarcaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarCategoríaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarCategoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,9 +122,7 @@
             // 
             this.marcasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuAgregarMarca,
-            this.menuListarMarcas,
-            this.modificarMarcaToolStripMenuItem,
-            this.eliminarMarcaToolStripMenuItem});
+            this.menuListarMarcas});
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
             this.marcasToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.marcasToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
@@ -134,31 +132,36 @@
             // 
             this.menuAgregarMarca.Name = "menuAgregarMarca";
             this.menuAgregarMarca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.menuAgregarMarca.Size = new System.Drawing.Size(203, 22);
+            this.menuAgregarMarca.Size = new System.Drawing.Size(194, 22);
             this.menuAgregarMarca.Text = "Agregar Marca";
             this.menuAgregarMarca.Click += new System.EventHandler(this.menuAgregarMarca_Click);
             // 
             // menuListarMarcas
             // 
+            this.menuListarMarcas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarMarcaToolStripMenuItem1,
+            this.eliminarMarcaToolStripMenuItem1});
             this.menuListarMarcas.Name = "menuListarMarcas";
             this.menuListarMarcas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.menuListarMarcas.Size = new System.Drawing.Size(203, 22);
+            this.menuListarMarcas.Size = new System.Drawing.Size(194, 22);
             this.menuListarMarcas.Text = "Listar Marcas";
             this.menuListarMarcas.Click += new System.EventHandler(this.menuListarMarcas_Click);
             // 
-            // modificarMarcaToolStripMenuItem
+            // modificarMarcaToolStripMenuItem1
             // 
-            this.modificarMarcaToolStripMenuItem.Name = "modificarMarcaToolStripMenuItem";
-            this.modificarMarcaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.modificarMarcaToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.modificarMarcaToolStripMenuItem.Text = "Modificar Marca";
+            this.modificarMarcaToolStripMenuItem1.Name = "modificarMarcaToolStripMenuItem1";
+            this.modificarMarcaToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.modificarMarcaToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.modificarMarcaToolStripMenuItem1.Text = "Modificar Marca";
+            this.modificarMarcaToolStripMenuItem1.Click += new System.EventHandler(this.modificarMarcaToolStripMenuItem1_Click);
             // 
-            // eliminarMarcaToolStripMenuItem
+            // eliminarMarcaToolStripMenuItem1
             // 
-            this.eliminarMarcaToolStripMenuItem.Name = "eliminarMarcaToolStripMenuItem";
-            this.eliminarMarcaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.eliminarMarcaToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.eliminarMarcaToolStripMenuItem.Text = "Eliminar Marca";
+            this.eliminarMarcaToolStripMenuItem1.Name = "eliminarMarcaToolStripMenuItem1";
+            this.eliminarMarcaToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.eliminarMarcaToolStripMenuItem1.Size = new System.Drawing.Size(203, 22);
+            this.eliminarMarcaToolStripMenuItem1.Text = "Eliminar Marca";
+            this.eliminarMarcaToolStripMenuItem1.Click += new System.EventHandler(this.eliminarMarcaToolStripMenuItem1_Click);
             // 
             // categoríasToolStripMenuItem
             // 
@@ -235,13 +238,13 @@
         private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuAgregarMarca;
         private System.Windows.Forms.ToolStripMenuItem menuListarMarcas;
-        private System.Windows.Forms.ToolStripMenuItem modificarMarcaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarMarcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoríasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarCategoríaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarCategoríasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarCategoríaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarCategoríaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarMarcaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem eliminarMarcaToolStripMenuItem1;
     }
 }
 

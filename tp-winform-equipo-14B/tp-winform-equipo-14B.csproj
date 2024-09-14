@@ -70,6 +70,12 @@
     <Compile Include="frmAgregarMarca.Designer.cs">
       <DependentUpon>frmAgregarMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEliminarMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEliminarMarca.Designer.cs">
+      <DependentUpon>frmEliminarMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListarArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarMarca.resx">
       <DependentUpon>frmAgregarMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEliminarMarca.resx">
+      <DependentUpon>frmEliminarMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListarArticulos.resx">
       <DependentUpon>frmListarArticulos.cs</DependentUpon>
