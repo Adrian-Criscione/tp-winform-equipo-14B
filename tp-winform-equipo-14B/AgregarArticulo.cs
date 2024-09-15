@@ -27,9 +27,23 @@ namespace tp_winform_equipo_14B
             
             InitializeComponent();
             this.articulo = articulo;
-            //propiedades que se modifican para la ventana de modificar
+            //propiedades que se modifican para la ventana de modificar          
             Text = "Modificar Articulo";
             lblAgregarArticulo.Text = "Modificar Articulo";
+        }
+        public frmAgregarArticulo(Articulo articulo, string botonClickeado)
+        {
+
+            InitializeComponent();
+            this.articulo = articulo;
+            //propiedades que se modifican para la ventana de modificar          
+            if(botonClickeado == "Ver Detalle")
+            {
+                Text = "Detalle Articulo";
+                lblAgregarArticulo.Text = "Detalle Articulo";
+                btnNuevo.Visible = false;
+                btnCancelar.Text = "Volver";
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -140,8 +154,29 @@ namespace tp_winform_equipo_14B
                     txtDescripcion.Text = articulo.Descripcion;
                     txtPrecio.Text = articulo.Precio.ToString();
                     cargarImagen(articulo.Imagen);
+                    
+                    //validar que la marca no sea null
+                    if(articulo.Marca is null)
+                    {
+                        cboMarcaArticulo.SelectedValue = "";
+                    }
+                    else
+                    {
+                        cboMarcaArticulo.SelectedValue = articulo.Marca.Id;
+                    }
+                    
+                    
                     cboMarcaArticulo.SelectedValue = articulo.Marca.Id;
-                    cboCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
+                    
+                    //validar que la categoria no sea null
+                    if(articulo.Categoria is null)
+                    {
+                        cboCategoriaArticulo.SelectedValue = "";
+                    }    
+                    else
+                    {
+                        cboCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
+                    }
           
                       
                         

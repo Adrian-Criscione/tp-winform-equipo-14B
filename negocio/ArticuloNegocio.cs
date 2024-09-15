@@ -14,7 +14,7 @@ namespace negocio
             try
             {
                 //datos.setearConsulta("select codigo, nombre, a.descripcion, m.Descripcion as MARCAS, c.Descripcion as CATEGORIAS, precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.id inner join CATEGORIAS c on a.idcategoria = c.Id"); // aca va la consulta.
-                datos.setearConsulta("SELECT A.id,A.Codigo, A.Nombre, A.Descripcion AS ArticuloDescripcion, m.id as IdMarca, M.Descripcion AS Marcas,c.Id as IdCategoria, C.Descripcion AS Categorias, A.Precio, I.ImagenUrl FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo"); // aca va la consulta.
+                datos.setearConsulta("SELECT A.id, A.Codigo, A.Nombre, A.Descripcion AS ArticuloDescripcion, M.id AS IdMarca, M.Descripcion AS Marcas, C.Id AS IdCategoria, C.Descripcion AS Categorias, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.id, A.Codigo, A.Nombre, A.Descripcion, M.id, M.Descripcion, C.Id, C.Descripcion, A.Precio;"); // aca va la consulta.
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -154,6 +154,115 @@ namespace negocio
 
         }
 
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                
+                string consulta = "SELECT A.id, A.Codigo, A.Nombre, A.Descripcion AS ArticuloDescripcion, M.id AS IdMarca, M.Descripcion AS Marcas, C.Id AS IdCategoria, C.Descripcion AS Categorias, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo where ";
+                string grupo = " GROUP BY A.id, A.Codigo, A.Nombre, A.Descripcion, M.id, M.Descripcion, C.Id, C.Descripcion, A.Precio";
+                if (campo == "Precio")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "A.Precio > " + filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "A.Precio < " + filtro;
+                            break;
+                        default:
+                            consulta += "A.Precio = " + filtro;
+                            break;
+                    }
+                }
+                else if (campo == "Nombre" || campo == "Descripcion" || campo == "Código")
+                {
+                    if (campo == "Código")
+                    {
+                        campo = "Codigo";
+                    }
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "a." + campo + " LIKE '" + filtro + "%'";
+                            break;
+                        case "Termina con":
+                            consulta += "a." + campo + " LIKE '%" + filtro + "'";
+                            break;
+                        default:
+                            consulta += "a." + campo + " LIKE '%" + filtro + "%'";
+                            break;
+                    }
+
+                }
+
+                datos.setearConsulta(consulta+grupo);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+
+                    aux.Id = (int)datos.Lector["Id"];
+
+                    if (!(datos.Lector["Codigo"] is DBNull))
+                    {
+                        aux.CodigoArticulo = (string)datos.Lector["Codigo"];
+
+                    }
+                    if (!(datos.Lector["Nombre"] is DBNull))
+                    {
+
+                        aux.Nombre = (string)datos.Lector["Nombre"];
+
+                    }
+                    if (!(datos.Lector["ArticuloDescripcion"] is DBNull))
+                    {
+                        aux.Descripcion = (string)datos.Lector["ArticuloDescripcion"];
+                    }
+
+                    if (!(datos.Lector["Marcas"] is DBNull) || !(datos.Lector["IdMarca"] is DBNull))
+                    {
+                        aux.Marca = new Marca();
+                        aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                        aux.Marca.Descripcion = (string)datos.Lector["Marcas"];
+                    }
+
+                    if (!(datos.Lector["Categorias"] is DBNull) || !(datos.Lector["IdCategoria"] is DBNull))
+                    {
+                        aux.Categoria = new Categoria();
+                        aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                        aux.Categoria.Descripcion = (string)datos.Lector["Categorias"];
+                    }
+
+                    if (!(datos.Lector["Precio"] is DBNull))
+                    {
+                        aux.Precio = (decimal)datos.Lector["Precio"];
+                    }
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    {
+                        aux.Imagen = (string)datos.Lector["ImagenUrl"];
+                    }
+
+                    lista.Add(aux);
+                }
+                return lista;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
 
