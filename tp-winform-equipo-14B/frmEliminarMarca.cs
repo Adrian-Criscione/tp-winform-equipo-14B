@@ -15,7 +15,7 @@ namespace tp_winform_equipo_14B
     public partial class frmEliminarMarca : Form
     {
         private List<Marca> listaMarcasEliminar;
-       
+        private Marca seleccionada;
 
         public frmEliminarMarca()
         {
@@ -38,29 +38,26 @@ namespace tp_winform_equipo_14B
 
         private void btnEliminarMarca_Click(object sender, EventArgs e)
         {
-           /* Marca seleccionada = new Marca();
-            MarcaNegocio marca = new MarcaNegocio();
-            
+            MarcaNegocio negocioMarca = new MarcaNegocio();
             try
             {
+
+                seleccionada = (Marca)dgvEliminarMarca.CurrentRow.DataBoundItem;
                 if (seleccionada.Id != 0)
                 {
-                    seleccionada = (Marca)dgvEliminarMarca.CurrentRow.DataBoundItem;
-                    marca.eliminarMarca(seleccionada.Id);
+                    negocioMarca.eliminarMarca(seleccionada.Id);
                     MessageBox.Show("Operación Exitosa");
                 }
 
-                listaMarcasEliminar = marca.listar();
+                listaMarcasEliminar = negocioMarca.listar();
                 dgvEliminarMarca.DataSource = listaMarcasEliminar;
 
-    
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
-            }*/
-           
+                throw;
+            }
 
         }
       

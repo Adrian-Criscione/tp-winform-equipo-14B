@@ -31,13 +31,27 @@ namespace tp_winform_equipo_14B
             
         }
 
+        private bool validarDescripcion()
+        {
+            if (string.IsNullOrEmpty(txtNuevaDescripcion.Text))
+            {
+                MessageBox.Show("El campo descripción no puede estar vacío");
+                return true;
+            }
+
+            return false;
+        }
+
         private void btnAceptarCambio_Click(object sender, EventArgs e)
         {
             
             MarcaNegocio negocioMarca = new MarcaNegocio();
             try
             {
-              
+                if (validarDescripcion())
+                {
+                    return;
+                }
                 seleccionada.Descripcion = txtNuevaDescripcion.Text;
                 if(seleccionada.Id !=0)
                 {

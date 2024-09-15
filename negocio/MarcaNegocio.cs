@@ -90,13 +90,13 @@ namespace negocio
 
         public void eliminarMarca(int id)
         {
+            AccesoDatos datosMarca = new AccesoDatos();
             try
             {
-                AccesoDatos datosMarca = new AccesoDatos();
+                datosMarca.setearConsulta("delete from MARCAS where id = @Id");
                 datosMarca.setearParametro("@ID", id);
                 datosMarca.ejecutarAccion();
-                datosMarca.setearConsulta("delete from MARCAS where id = @Id");
-
+               
             }
             catch (Exception ex)
             {

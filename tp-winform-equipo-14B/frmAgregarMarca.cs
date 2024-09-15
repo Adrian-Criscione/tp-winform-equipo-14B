@@ -24,12 +24,28 @@ namespace tp_winform_equipo_14B
             Close();
         }
 
+        private bool validarDescripcion()
+        {
+            if (string.IsNullOrEmpty(txtDescripcionMarca.Text))
+            {
+                MessageBox.Show("El campo descripción no puede estar vacío");
+                return true;
+            }
+
+            return false;
+        }
+
         private void btnAgregarMarca_Click(object sender, EventArgs e)
         {
             Marca nuevaM = new Marca();
             MarcaNegocio negocio = new MarcaNegocio();
             try
             {
+                if(validarDescripcion())
+                {
+                    return;
+                }
+
                 nuevaM.Descripcion = txtDescripcionMarca.Text;
                 negocio.agregarMarca(nuevaM);
                 MessageBox.Show("Marca agregada con éxito");

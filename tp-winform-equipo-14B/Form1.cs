@@ -108,5 +108,17 @@ namespace tp_winform_equipo_14B
             frmEliminarCategoria ventana = new frmEliminarCategoria();
             ventana.ShowDialog();
         }
+
+        private void modificarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmModificarMarca ventana = new frmModificarMarca();
+            ventana.ShowDialog();
+        }
+
+        private void eliminarMarcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminarMarca ventana = new frmEliminarMarca();
+            ventana.ShowDialog();
+        }
     }
 }
