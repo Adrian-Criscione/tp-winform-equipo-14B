@@ -56,34 +56,37 @@
             this.dgvListarCategorias.Location = new System.Drawing.Point(37, 80);
             this.dgvListarCategorias.Name = "dgvListarCategorias";
             this.dgvListarCategorias.Size = new System.Drawing.Size(258, 283);
-            this.dgvListarCategorias.TabIndex = 1;
+            this.dgvListarCategorias.TabIndex = 3;
             // 
             // btnModificarCat
             // 
             this.btnModificarCat.Location = new System.Drawing.Point(27, 390);
             this.btnModificarCat.Name = "btnModificarCat";
             this.btnModificarCat.Size = new System.Drawing.Size(82, 39);
-            this.btnModificarCat.TabIndex = 2;
+            this.btnModificarCat.TabIndex = 0;
             this.btnModificarCat.Text = "Modificar";
             this.btnModificarCat.UseVisualStyleBackColor = true;
+            this.btnModificarCat.Click += new System.EventHandler(this.btnModificarCat_Click);
             // 
             // btnEliminarCat
             // 
             this.btnEliminarCat.Location = new System.Drawing.Point(124, 390);
             this.btnEliminarCat.Name = "btnEliminarCat";
             this.btnEliminarCat.Size = new System.Drawing.Size(81, 39);
-            this.btnEliminarCat.TabIndex = 3;
+            this.btnEliminarCat.TabIndex = 1;
             this.btnEliminarCat.Text = "Eliminar";
             this.btnEliminarCat.UseVisualStyleBackColor = true;
+            this.btnEliminarCat.Click += new System.EventHandler(this.btnEliminarCat_Click);
             // 
             // btnCancelarCat
             // 
             this.btnCancelarCat.Location = new System.Drawing.Point(221, 390);
             this.btnCancelarCat.Name = "btnCancelarCat";
             this.btnCancelarCat.Size = new System.Drawing.Size(82, 39);
-            this.btnCancelarCat.TabIndex = 4;
+            this.btnCancelarCat.TabIndex = 2;
             this.btnCancelarCat.Text = "Cancelar";
             this.btnCancelarCat.UseVisualStyleBackColor = true;
+            this.btnCancelarCat.Click += new System.EventHandler(this.btnCancelarCat_Click);
             // 
             // frmListarCategorias
             // 

@@ -196,6 +196,7 @@
             this.modificarCategoríaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.modificarCategoríaToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.modificarCategoríaToolStripMenuItem.Text = "Modificar Categoría";
+            this.modificarCategoríaToolStripMenuItem.Click += new System.EventHandler(this.modificarCategoríaToolStripMenuItem_Click);
             // 
             // eliminarCategoríaToolStripMenuItem
             // 
@@ -203,6 +204,7 @@
             this.eliminarCategoríaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.eliminarCategoríaToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.eliminarCategoríaToolStripMenuItem.Text = "Eliminar Categoría";
+            this.eliminarCategoríaToolStripMenuItem.Click += new System.EventHandler(this.eliminarCategoríaToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 

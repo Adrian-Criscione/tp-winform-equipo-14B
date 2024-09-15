@@ -28,7 +28,6 @@ namespace negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -36,36 +35,29 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
         public void agregarCategoria(Categoria newcat)
         {
             AccesoDatos datosCat = new AccesoDatos();
-
             try
             {
-
                 datosCat.setearConsulta("INSERT INTO CATEGORIAS(Descripcion) VALUES (@Descripcion)");
                 datosCat.setearParametro("@Descripcion", newcat.Descripcion);
-
                 datosCat.ejecutarAccion();
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
-
             {
                 datosCat.cerrarConexion();
             }
-        
-        
-        
         }
+
         public void modificarCategoria(Categoria modifcat)
         {
             AccesoDatos datoCat = new AccesoDatos();
-
             try
             {
                 datoCat.setearConsulta("UPDATE CATEGORIAS SET Descripcion = @Descripcion WHERE Id = @Id");
@@ -73,25 +65,21 @@ namespace negocio
                 datoCat.setearParametro("@Descripcion", modifcat.Descripcion);
                 datoCat.ejecutarAccion();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
             finally
             {
                 datoCat.cerrarConexion();
             }
-
         }
-
 
         public bool ExisteCategoria(string newcat)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                // Consulta para buscar una categoría con la misma descripción
                 datos.setearConsulta("SELECT COUNT(*) FROM CATEGORIAS WHERE Descripcion = @Descripcion");
                 datos.setearParametro("@Descripcion", newcat);
                 datos.ejecutarLectura();
@@ -99,9 +87,54 @@ namespace negocio
                 if (datos.Lector.Read())
                 {
                     int count = (int)datos.Lector[0];
-                    return count > 0; // Devuelve true si ya existe la categoría
+                    return count > 0; 
                 }
-                return false; // No encontró ninguna coincidencia
+                return false; 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public bool ExisteCategoriaPorId(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(*) FROM CATEGORIAS WHERE Id = @Id");
+                datos.setearParametro("@Id", id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    int count = (int)datos.Lector[0];
+                    return count > 0;
+                }
+                return false; 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        
+        }
+        public void eliminarCategoria(int idCategoria)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("DELETE FROM CATEGORIAS WHERE Id = @Id");
+                datos.setearParametro("@Id", idCategoria);
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {

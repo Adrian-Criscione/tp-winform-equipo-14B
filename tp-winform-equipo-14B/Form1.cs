@@ -77,5 +77,36 @@ namespace tp_winform_equipo_14B
             frmListarCategorias ventana = new frmListarCategorias();           
             ventana.ShowDialog();
         }
+
+        private void modificarCategoríaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+
+                if (item.GetType() == typeof(frmEditarCategoria))
+                {
+                    return;
+                }
+
+            }
+            frmEditarCategoria ventana = new frmEditarCategoria();
+            ventana.ShowDialog();
+
+        }
+
+        private void eliminarCategoríaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+
+                if (item.GetType() == typeof(frmEliminarCategoria))
+                {
+                    return;
+                }
+
+            }
+            frmEliminarCategoria ventana = new frmEliminarCategoria();
+            ventana.ShowDialog();
+        }
     }
 }

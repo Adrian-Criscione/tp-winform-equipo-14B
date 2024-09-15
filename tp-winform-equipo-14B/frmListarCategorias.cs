@@ -30,6 +30,22 @@ namespace tp_winform_equipo_14B
            
         }
 
-      
+        private void btnModificarCat_Click(object sender, EventArgs e)
+        {
+            frmEditarCategoria formEditarCategoria = new frmEditarCategoria();
+            formEditarCategoria.ShowDialog();
+
+        }
+
+        private void btnEliminarCat_Click(object sender, EventArgs e)
+        {
+            frmEliminarCategoria formEliminarCategoria = new frmEliminarCategoria();
+            formEliminarCategoria.ShowDialog();
+        }
+
+        private void btnCancelarCat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
