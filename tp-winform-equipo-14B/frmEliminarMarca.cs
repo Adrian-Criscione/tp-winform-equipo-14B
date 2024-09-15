@@ -43,6 +43,7 @@ namespace tp_winform_equipo_14B
             {
 
                 seleccionada = (Marca)dgvEliminarMarca.CurrentRow.DataBoundItem;
+               
                 if (seleccionada.Id != 0)
                 {
                     negocioMarca.eliminarMarca(seleccionada.Id);

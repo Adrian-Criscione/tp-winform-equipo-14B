@@ -39,17 +39,27 @@ namespace tp_winform_equipo_14B
         {
             Marca nuevaM = new Marca();
             MarcaNegocio negocio = new MarcaNegocio();
+
+            List<Marca> listaMarcas = new List<Marca>();
+            listaMarcas = negocio.listar();
             try
             {
-                if(validarDescripcion())
+                nuevaM.Descripcion = txtDescripcionMarca.Text;
+                if (validarDescripcion())
                 {
                     return;
                 }
+                else if (!listaMarcas.Any(m => m.Descripcion.Equals(nuevaM.Descripcion, StringComparison.OrdinalIgnoreCase)))
+                {
+                    negocio.agregarMarca(nuevaM);
+                    MessageBox.Show("Marca agregada con éxito");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Marca ya existente, no se aceptan duplicados");
+                }
 
-                nuevaM.Descripcion = txtDescripcionMarca.Text;
-                negocio.agregarMarca(nuevaM);
-                MessageBox.Show("Marca agregada con éxito");
-                Close();
             }
             catch (Exception ex)
             {

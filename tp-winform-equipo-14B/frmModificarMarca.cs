@@ -46,6 +46,7 @@ namespace tp_winform_equipo_14B
         {
             
             MarcaNegocio negocioMarca = new MarcaNegocio();
+           
             try
             {
                 if (validarDescripcion())
