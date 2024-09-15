@@ -1,16 +1,7 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlTypes;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using dominio;
+﻿using dominio;
 using negocio;
+using System;
+using System.Windows.Forms;
 
 namespace tp_winform_equipo_14B
 {
@@ -24,7 +15,7 @@ namespace tp_winform_equipo_14B
         //CONSTRUCTOR PARA PODER MODIFICAAR ARTICULOS
         public frmAgregarArticulo(Articulo articulo)
         {
-            
+
             InitializeComponent();
             this.articulo = articulo;
             //propiedades que se modifican para la ventana de modificar          
@@ -37,7 +28,7 @@ namespace tp_winform_equipo_14B
             InitializeComponent();
             this.articulo = articulo;
             //propiedades que se modifican para la ventana de modificar          
-            if(botonClickeado == "Ver Detalle")
+            if (botonClickeado == "Ver Detalle")
             {
                 Text = "Detalle Articulo";
                 lblAgregarArticulo.Text = "Detalle Articulo";
@@ -63,20 +54,87 @@ namespace tp_winform_equipo_14B
         {
             this.Close();
         }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
 
+            return true;
+        }
+        private bool numerosMayores(string cadena)
+        {
+            // Intenta convertir la cadena a un número decimal
+            if (decimal.TryParse(cadena, out decimal numero))
+            {
+                // Retorna true solo si el número es mayor o igual a cero
+                if(numero>=0)
+
+                return true;
+                
+            }
+
+            // Retorna false si la conversión falla (es decir, no es un número válido)
+            return false;
+        }
+        private bool validarArticulos()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            //VAlidar el codigo
+            if (txtCodigo.Text.Length >= 0)
+            {
+                if(negocio.validarCodigo(txtCodigo.Text))
+                {
+                    MessageBox.Show("El codigo ya está cargado. Elija otro");
+                    return true;
+                }
+            }
+            // validar nombre
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                MessageBox.Show("El campo nombre no puede estar vacío");
+                return true;
+            }
+            //validar descripcion
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                MessageBox.Show("El campo descipcion no puede estar vacío");
+                return true;
+            }
+            // validar el precio no sea vacio ni negativo
+            if (!(soloNumeros(txtPrecio.Text)))
+            {
+                MessageBox.Show("El campo Precio no puede estar vacío");
+                return true;
+            }
+            if(!(numerosMayores(txtPrecio.Text)))
+            {
+                MessageBox.Show("El campo Precio debe ser mayor a cero");
+                return true;
+            }
+            return false;
+        }
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
         {
-            
+
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
-                if(articulo == null)
-                { 
+                if (articulo == null)
+                {
                     articulo = new Articulo();
                 }
-                  
+                if (validarArticulos())
+                {
+                    return;
+                }
                 articulo.CodigoArticulo = txtCodigo.Text;
+               
                 articulo.Nombre = txtNombre.Text;
                 articulo.Descripcion = txtDescripcion.Text;
                 articulo.Marca = (Marca)cboMarcaArticulo.SelectedItem;
@@ -84,7 +142,7 @@ namespace tp_winform_equipo_14B
                 articulo.Precio = decimal.Parse(txtPrecio.Text);
                 articulo.Imagen = txtImagen.Text;
 
-                if(articulo.Id != 0)
+                if (articulo.Id != 0)
                 {
                     negocio.modificar(articulo);
                     MessageBox.Show("Articulo " + txtCodigo.Text + " modificado con éxito");
@@ -95,9 +153,9 @@ namespace tp_winform_equipo_14B
                     negocio.agregar(articulo);
                     MessageBox.Show("Articulo " + txtCodigo.Text + " agregado con éxito");
                 }
-                
+
                 this.Close();
-                
+
                 btnAgregarArticulo.Visible = false;
                 btnNuevo.Visible = true;
                 txtCodigo.Enabled = false;
@@ -114,14 +172,14 @@ namespace tp_winform_equipo_14B
                 MessageBox.Show(ex.ToString());
             }
 
-            
+
         }
 
         private void frmAgregarArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new negocio.CategoriaNegocio();
-            
+
             try
             {
                 //SI entra por modificar se cambian estos valores en las props del formulario
@@ -147,16 +205,16 @@ namespace tp_winform_equipo_14B
                 cboCategoriaArticulo.ValueMember = "Id";
                 cboCategoriaArticulo.DisplayMember = "Descripcion";
 
-                 if(articulo != null)
+                if (articulo != null)
                 {
                     txtCodigo.Text = articulo.CodigoArticulo;
                     txtNombre.Text = articulo.Nombre;
                     txtDescripcion.Text = articulo.Descripcion;
                     txtPrecio.Text = articulo.Precio.ToString();
                     cargarImagen(articulo.Imagen);
-                    
+
                     //validar que la marca no sea null
-                    if(articulo.Marca is null)
+                    if (articulo.Marca is null)
                     {
                         cboMarcaArticulo.SelectedValue = "";
                     }
@@ -164,25 +222,25 @@ namespace tp_winform_equipo_14B
                     {
                         cboMarcaArticulo.SelectedValue = articulo.Marca.Id;
                     }
-                    
-                    
+
+
                     cboMarcaArticulo.SelectedValue = articulo.Marca.Id;
-                    
+
                     //validar que la categoria no sea null
-                    if(articulo.Categoria is null)
+                    if (articulo.Categoria is null)
                     {
                         cboCategoriaArticulo.SelectedValue = "";
-                    }    
+                    }
                     else
                     {
                         cboCategoriaArticulo.SelectedValue = articulo.Categoria.Id;
                     }
-          
-                      
-                        
 
-                    
-                    
+
+
+
+
+
                 }
             }
             catch (Exception ex)
@@ -190,7 +248,7 @@ namespace tp_winform_equipo_14B
 
                 MessageBox.Show(ex.ToString());
             }
-            
+
         }
         private void cargarImagen(string imagen)
         {

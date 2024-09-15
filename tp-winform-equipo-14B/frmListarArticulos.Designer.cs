@@ -63,9 +63,9 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(12, 375);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 377);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(88, 33);
+            this.btnAgregar.Size = new System.Drawing.Size(88, 31);
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(106, 375);
+            this.btnModificar.Location = new System.Drawing.Point(106, 377);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 33);
             this.btnModificar.TabIndex = 3;
@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1113, 436);
+            this.ClientSize = new System.Drawing.Size(1391, 545);
             this.Controls.Add(this.cmdDetalle);
             this.Controls.Add(this.gbxFiltros);
             this.Controls.Add(this.txtBuscar);

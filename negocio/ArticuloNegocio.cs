@@ -76,6 +76,36 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        public bool validarCodigo(string codigo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            int cantidad = 0;
+            try
+            {
+                datos.setearConsulta("select count(codigo) from articulos where codigo =@Codigo");
+                datos.setearParametro("@codigo", codigo);
+                datos.ejecutarLectura();
+                if (datos.Lector.Read())
+                {
+                    cantidad = (int)datos.Lector[0];
+                    if (cantidad > 0)
+                    {
+                        
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            { 
+                datos.cerrarConexion();
+            }
+        }
         public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
