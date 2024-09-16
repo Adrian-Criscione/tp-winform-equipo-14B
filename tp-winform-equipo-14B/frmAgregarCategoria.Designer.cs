@@ -58,7 +58,7 @@ namespace tp_winform_equipo_14B
             this.btnCancelarCategoria.Name = "btnCancelarCategoria";
             this.btnCancelarCategoria.Size = new System.Drawing.Size(99, 45);
             this.btnCancelarCategoria.TabIndex = 1;
-            this.btnCancelarCategoria.Text = "Cancelar";
+            this.btnCancelarCategoria.Text = "Salir";
             this.btnCancelarCategoria.UseVisualStyleBackColor = true;
             this.btnCancelarCategoria.Click += new System.EventHandler(this.btnCancelarCategoria_Click);
             // 
@@ -68,7 +68,7 @@ namespace tp_winform_equipo_14B
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(63, 60);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(70, 16);
+            this.txtNombre.Size = new System.Drawing.Size(71, 16);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.Text = "Nombre :";
             // 

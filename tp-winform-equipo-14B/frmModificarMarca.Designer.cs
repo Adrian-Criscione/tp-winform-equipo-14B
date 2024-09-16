@@ -34,7 +34,7 @@ namespace tp_winform_equipo_14B
             this.txtNuevaDescripcion = new System.Windows.Forms.TextBox();
             this.btnAceptarCambio = new System.Windows.Forms.Button();
             this.dgvModificarMarca = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModificarMarca)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,25 +98,26 @@ namespace tp_winform_equipo_14B
             this.dgvModificarMarca.TabIndex = 4;
             this.dgvModificarMarca.SelectionChanged += new System.EventHandler(this.dgvModificarMarca_SelectionChanged);
             // 
-            // btnSalir
+            // btnCancelar
             // 
-            this.btnSalir.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSalir.FlatAppearance.BorderSize = 2;
-            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Location = new System.Drawing.Point(170, 432);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(111, 45);
-            this.btnSalir.TabIndex = 5;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCancelar.FlatAppearance.BorderSize = 2;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Location = new System.Drawing.Point(170, 432);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(111, 45);
+            this.btnCancelar.TabIndex = 5;
+            this.btnCancelar.Text = "Salir";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmModificarMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 489);
-            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvModificarMarca);
             this.Controls.Add(this.btnAceptarCambio);
             this.Controls.Add(this.txtNuevaDescripcion);
@@ -143,6 +144,6 @@ namespace tp_winform_equipo_14B
         private System.Windows.Forms.TextBox txtNuevaDescripcion;
         private System.Windows.Forms.Button btnAceptarCambio;
         private System.Windows.Forms.DataGridView dgvModificarMarca;
-        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

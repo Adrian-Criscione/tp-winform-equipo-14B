@@ -59,7 +59,7 @@
             this.btnCancelarCatElim.Name = "btnCancelarCatElim";
             this.btnCancelarCatElim.Size = new System.Drawing.Size(87, 39);
             this.btnCancelarCatElim.TabIndex = 8;
-            this.btnCancelarCatElim.Text = "Cancelar";
+            this.btnCancelarCatElim.Text = "Salir";
             this.btnCancelarCatElim.UseVisualStyleBackColor = true;
             this.btnCancelarCatElim.Click += new System.EventHandler(this.btnCancelarCatElim_Click);
             // 
@@ -77,7 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 459);
+            this.ClientSize = new System.Drawing.Size(447, 459);
             this.Controls.Add(this.btnCancelarCatElim);
             this.Controls.Add(this.btnEliminarCat);
             this.Controls.Add(this.dgvListarCategoriasElim);

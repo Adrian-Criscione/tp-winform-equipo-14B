@@ -78,5 +78,10 @@ namespace tp_winform_equipo_14B
         {
             seleccionada = (Marca)dgvModificarMarca.CurrentRow.DataBoundItem;
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

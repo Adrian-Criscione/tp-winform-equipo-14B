@@ -34,7 +34,7 @@ namespace tp_winform_equipo_14B
                 Text = "Detalle Articulo";
                 lblAgregarArticulo.Text = "Detalle Articulo";
                 btnNuevo.Visible = false;
-                btnCancelar.Text = "Volver";
+                btnSalir.Text = "Volver";
             }
         }
 

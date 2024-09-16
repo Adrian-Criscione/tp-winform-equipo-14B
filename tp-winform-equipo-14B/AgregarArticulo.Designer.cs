@@ -46,7 +46,7 @@ namespace tp_winform_equipo_14B
             this.txtImagen = new System.Windows.Forms.TextBox();
             this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +67,7 @@ namespace tp_winform_equipo_14B
             this.lblNombreArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreArticulo.Location = new System.Drawing.Point(61, 180);
             this.lblNombreArticulo.Name = "lblNombreArticulo";
-            this.lblNombreArticulo.Size = new System.Drawing.Size(70, 16);
+            this.lblNombreArticulo.Size = new System.Drawing.Size(71, 16);
             this.lblNombreArticulo.TabIndex = 1;
             this.lblNombreArticulo.Text = "Nombre :";
             // 
@@ -77,7 +77,7 @@ namespace tp_winform_equipo_14B
             this.lblCodigoArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigoArticulo.Location = new System.Drawing.Point(66, 146);
             this.lblCodigoArticulo.Name = "lblCodigoArticulo";
-            this.lblCodigoArticulo.Size = new System.Drawing.Size(65, 16);
+            this.lblCodigoArticulo.Size = new System.Drawing.Size(66, 16);
             this.lblCodigoArticulo.TabIndex = 2;
             this.lblCodigoArticulo.Text = "Código :";
             // 
@@ -87,7 +87,7 @@ namespace tp_winform_equipo_14B
             this.lblDescripcionCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcionCurso.Location = new System.Drawing.Point(33, 217);
             this.lblDescripcionCurso.Name = "lblDescripcionCurso";
-            this.lblDescripcionCurso.Size = new System.Drawing.Size(98, 16);
+            this.lblDescripcionCurso.Size = new System.Drawing.Size(99, 16);
             this.lblDescripcionCurso.TabIndex = 3;
             this.lblDescripcionCurso.Text = "Descripción :";
             // 
@@ -97,7 +97,7 @@ namespace tp_winform_equipo_14B
             this.lblMarcaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarcaArticulo.Location = new System.Drawing.Point(73, 252);
             this.lblMarcaArticulo.Name = "lblMarcaArticulo";
-            this.lblMarcaArticulo.Size = new System.Drawing.Size(58, 16);
+            this.lblMarcaArticulo.Size = new System.Drawing.Size(59, 16);
             this.lblMarcaArticulo.TabIndex = 4;
             this.lblMarcaArticulo.Text = "Marca :";
             // 
@@ -107,7 +107,7 @@ namespace tp_winform_equipo_14B
             this.lblCategoriaArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoriaArticulo.Location = new System.Drawing.Point(48, 284);
             this.lblCategoriaArticulo.Name = "lblCategoriaArticulo";
-            this.lblCategoriaArticulo.Size = new System.Drawing.Size(83, 16);
+            this.lblCategoriaArticulo.Size = new System.Drawing.Size(84, 16);
             this.lblCategoriaArticulo.TabIndex = 5;
             this.lblCategoriaArticulo.Text = "Categoría :";
             // 
@@ -117,7 +117,7 @@ namespace tp_winform_equipo_14B
             this.lblPrecioArticulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioArticulo.Location = new System.Drawing.Point(71, 350);
             this.lblPrecioArticulo.Name = "lblPrecioArticulo";
-            this.lblPrecioArticulo.Size = new System.Drawing.Size(60, 16);
+            this.lblPrecioArticulo.Size = new System.Drawing.Size(61, 16);
             this.lblPrecioArticulo.TabIndex = 6;
             this.lblPrecioArticulo.Text = "Precio :";
             // 
@@ -127,7 +127,7 @@ namespace tp_winform_equipo_14B
             this.lblUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUrlImagen.Location = new System.Drawing.Point(31, 318);
             this.lblUrlImagen.Name = "lblUrlImagen";
-            this.lblUrlImagen.Size = new System.Drawing.Size(100, 16);
+            this.lblUrlImagen.Size = new System.Drawing.Size(101, 16);
             this.lblUrlImagen.TabIndex = 7;
             this.lblUrlImagen.Text = "URL Imagen :";
             // 
@@ -228,20 +228,20 @@ namespace tp_winform_equipo_14B
             this.btnAgregarArticulo.Visible = false;
             this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
-            // btnCancelar
+            // btnSalir
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCancelar.FlatAppearance.BorderSize = 2;
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(319, 392);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(108, 34);
-            this.btnCancelar.TabIndex = 17;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSalir.FlatAppearance.BorderSize = 2;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Location = new System.Drawing.Point(319, 392);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(108, 34);
+            this.btnSalir.TabIndex = 17;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnNuevo
             // 
@@ -265,7 +265,7 @@ namespace tp_winform_equipo_14B
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(719, 436);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAgregarArticulo);
             this.Controls.Add(this.pbxImagenArticulo);
             this.Controls.Add(this.txtImagen);
@@ -317,7 +317,7 @@ namespace tp_winform_equipo_14B
         private System.Windows.Forms.TextBox txtImagen;
         private System.Windows.Forms.PictureBox pbxImagenArticulo;
         private System.Windows.Forms.Button btnAgregarArticulo;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnNuevo;
     }
 }

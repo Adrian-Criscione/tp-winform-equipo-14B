@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 463);
+            this.ClientSize = new System.Drawing.Size(1089, 463);
             this.Controls.Add(this.cmdDetalle);
             this.Controls.Add(this.gbxFiltros);
             this.Controls.Add(this.txtBuscar);
@@ -220,7 +220,11 @@
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvListarArticulos);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1105, 502);
             this.Name = "frmListarArticulos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listar Articulos";
             this.Load += new System.EventHandler(this.frmListarArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarArticulos)).EndInit();

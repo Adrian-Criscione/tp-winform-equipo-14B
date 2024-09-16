@@ -21,7 +21,7 @@ namespace tp_winform_equipo_14B
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -44,6 +44,11 @@ namespace tp_winform_equipo_14B
         {
             frmEliminarMarca ventana = new frmEliminarMarca();
             ventana.ShowDialog();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

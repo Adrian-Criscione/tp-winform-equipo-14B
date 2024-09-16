@@ -71,7 +71,7 @@ namespace tp_winform_equipo_14B
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Salir";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnModificar
             // 
