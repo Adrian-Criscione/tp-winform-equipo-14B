@@ -100,6 +100,31 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+        public bool ExisteCategoria(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT COUNT(idCategoria) FROM articulos WHERE idCategoria = @idCategoria");
+                datos.setearParametro("@idCategoria", id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    int count = (int)datos.Lector[0];
+                    return count > 0;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
         public bool ExisteCategoriaPorId(int id)
         {

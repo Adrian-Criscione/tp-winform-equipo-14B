@@ -9,6 +9,7 @@ namespace tp_winform_equipo_14B
     public partial class frmListarArticulos : Form
     {
         private List<Articulo> ListaArticulo;
+        Button botonclickeado;
         public frmListarArticulos()
         {
             InitializeComponent();
@@ -78,14 +79,24 @@ namespace tp_winform_equipo_14B
             agregarArticulo.ShowDialog();
             cargar();
         }
-
+        public string botonClickeado(object sender, EventArgs e)
+        {
+            botonclickeado = sender as Button;
+            if(botonclickeado != null )
+            {
+                return botonclickeado.Text;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
         private void btnModificar_Click(object sender, EventArgs e)
         {
             //seleccionar el articulo para pasarlo al constructor de la clase frmagregarArticulo
             Articulo seleccionado;
 
             seleccionado = (Articulo)dgvListarArticulos.CurrentRow.DataBoundItem;
-
             frmAgregarArticulo modificarArticulo = new frmAgregarArticulo(seleccionado);
             modificarArticulo.ShowDialog();
             cargar();
@@ -226,7 +237,7 @@ namespace tp_winform_equipo_14B
                 cboCriterio.Items.Add("Contiene");
             }
         }
-        Button botonclickeado;
+        
         private void cmdDetalle_Click(object sender, EventArgs e)
         {
             Articulo seleccionado;

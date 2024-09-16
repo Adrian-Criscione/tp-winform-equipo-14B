@@ -63,7 +63,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(12, 377);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 403);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(88, 31);
             this.btnAgregar.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(106, 377);
+            this.btnModificar.Location = new System.Drawing.Point(106, 403);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 33);
             this.btnModificar.TabIndex = 3;
@@ -92,7 +92,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(200, 375);
+            this.btnEliminar.Location = new System.Drawing.Point(200, 401);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(88, 33);
             this.btnEliminar.TabIndex = 4;
@@ -103,7 +103,7 @@
             // lblBuscar
             // 
             this.lblBuscar.AutoSize = true;
-            this.lblBuscar.Location = new System.Drawing.Point(12, 344);
+            this.lblBuscar.Location = new System.Drawing.Point(12, 370);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Size = new System.Drawing.Size(92, 13);
             this.lblBuscar.TabIndex = 5;
@@ -111,7 +111,7 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(106, 341);
+            this.txtBuscar.Location = new System.Drawing.Point(106, 367);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(348, 20);
             this.txtBuscar.TabIndex = 6;
@@ -136,7 +136,7 @@
             this.gbxFiltros.Controls.Add(this.cboCampo);
             this.gbxFiltros.Controls.Add(this.lblCampo);
             this.gbxFiltros.Controls.Add(this.btnBuscar);
-            this.gbxFiltros.Location = new System.Drawing.Point(460, 341);
+            this.gbxFiltros.Location = new System.Drawing.Point(460, 367);
             this.gbxFiltros.Name = "gbxFiltros";
             this.gbxFiltros.Size = new System.Drawing.Size(590, 86);
             this.gbxFiltros.TabIndex = 8;
@@ -198,7 +198,7 @@
             // 
             // cmdDetalle
             // 
-            this.cmdDetalle.Location = new System.Drawing.Point(294, 375);
+            this.cmdDetalle.Location = new System.Drawing.Point(294, 401);
             this.cmdDetalle.Name = "cmdDetalle";
             this.cmdDetalle.Size = new System.Drawing.Size(88, 33);
             this.cmdDetalle.TabIndex = 9;
@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1391, 545);
+            this.ClientSize = new System.Drawing.Size(1073, 463);
             this.Controls.Add(this.cmdDetalle);
             this.Controls.Add(this.gbxFiltros);
             this.Controls.Add(this.txtBuscar);

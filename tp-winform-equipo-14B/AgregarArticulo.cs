@@ -22,9 +22,10 @@ namespace tp_winform_equipo_14B
             Text = "Modificar Articulo";
             lblAgregarArticulo.Text = "Modificar Articulo";
         }
+        //CONSTRUCTOR PAR VER IMAGENES
         public frmAgregarArticulo(Articulo articulo, string botonClickeado)
         {
-
+            
             InitializeComponent();
             this.articulo = articulo;
             //propiedades que se modifican para la ventana de modificar          
@@ -84,15 +85,20 @@ namespace tp_winform_equipo_14B
         private bool validarArticulos()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            string texto = lblAgregarArticulo.Text;
             //VAlidar el codigo
             if (txtCodigo.Text.Length >= 0)
             {
-                if(negocio.validarCodigo(txtCodigo.Text))
+               if(!(texto == "Modificar Articulo"))
                 {
-                    MessageBox.Show("El codigo ya está cargado. Elija otro");
-                    return true;
+                    if (negocio.validarCodigo(txtCodigo.Text))
+                    {
+                        MessageBox.Show("El codigo ya está cargado. Elija otro");
+                        return true;
+                    }
                 }
             }
+            
             // validar nombre
             if (string.IsNullOrEmpty(txtNombre.Text))
             {
@@ -139,6 +145,7 @@ namespace tp_winform_equipo_14B
                 articulo.Descripcion = txtDescripcion.Text;
                 articulo.Marca = (Marca)cboMarcaArticulo.SelectedItem;
                 articulo.Categoria = (Categoria)cboCategoriaArticulo.SelectedItem;
+                articulo.Imagen = txtImagen.Text;
                 articulo.Precio = decimal.Parse(txtPrecio.Text);
                 articulo.Imagen = txtImagen.Text;
 
@@ -151,6 +158,8 @@ namespace tp_winform_equipo_14B
                 else
                 {
                     negocio.agregar(articulo);
+                    //metodo buscar idarticulo
+                    //llamar agregarimagen articulo.Imagen
                     MessageBox.Show("Articulo " + txtCodigo.Text + " agregado con éxito");
                 }
 

@@ -43,9 +43,16 @@ namespace tp_winform_equipo_14B
             {
 
                 seleccionada = (Marca)dgvEliminarMarca.CurrentRow.DataBoundItem;
-               
+                //
+                if (negocioMarca.ExisteMarca(seleccionada.Id))
+                {
+                    MessageBox.Show("La Marca esta en uso y no se puede borrar.");
+                    return;
+                }
+                //
                 if (seleccionada.Id != 0)
                 {
+
                     negocioMarca.eliminarMarca(seleccionada.Id);
                     MessageBox.Show("Operación Exitosa");
                 }

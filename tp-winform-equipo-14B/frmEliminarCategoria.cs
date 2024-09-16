@@ -43,6 +43,13 @@ namespace tp_winform_equipo_14B
                 try
                 {
                     CategoriaNegocio catNegocio = new CategoriaNegocio();
+                    //
+                    if (catNegocio.ExisteCategoria(idCategoria))
+                    {
+                        MessageBox.Show("La categoría esta en uso. No se puede borrar.");
+                        return;
+                    }
+                    //
                     catNegocio.eliminarCategoria(idCategoria);
 
                     ListCatElim = catNegocio.listar();
