@@ -110,11 +110,13 @@ namespace tp_winform_equipo_14B
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvListarMarcas);
             this.Controls.Add(this.lblTituloListarMarcas);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(696, 489);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(463, 489);
             this.Name = "frmListarMarcas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmListarMarcas";
+            this.Text = "Listado de Marcas";
             this.Load += new System.EventHandler(this.frmListarMarcas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListarMarcas)).EndInit();
             this.ResumeLayout(false);

@@ -1,6 +1,9 @@
 ﻿using dominio;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
 
 
 namespace negocio
@@ -13,8 +16,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                //datos.setearConsulta("select codigo, nombre, a.descripcion, m.Descripcion as MARCAS, c.Descripcion as CATEGORIAS, precio from ARTICULOS a inner join MARCAS m on a.IdMarca = m.id inner join CATEGORIAS c on a.idcategoria = c.Id"); // aca va la consulta.
-                datos.setearConsulta("SELECT A.id, A.Codigo, A.Nombre, A.Descripcion AS ArticuloDescripcion, M.id AS IdMarca, M.Descripcion AS Marcas, C.Id AS IdCategoria, C.Descripcion AS Categorias, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.id, A.Codigo, A.Nombre, A.Descripcion, M.id, M.Descripcion, C.Id, C.Descripcion, A.Precio;"); // aca va la consulta.
+                datos.setearConsulta("SELECT A.id, A.Codigo, A.Nombre, A.Descripcion AS ArticuloDescripcion, M.id AS IdMarca, M.Descripcion AS Marcas, C.Id AS IdCategoria, C.Descripcion AS Categorias, A.Precio, MIN(I.ImagenUrl) AS ImagenUrl FROM ARTICULOS A LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo GROUP BY A.id, A.Codigo, A.Nombre, A.Descripcion, M.id, M.Descripcion, C.Id, C.Descripcion, A.Precio"); // aca va la consulta.
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -137,17 +139,42 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregarImagen(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Articulo articulo = new Articulo();
+            articulo = listar().Last();
+            try
+            {
+                int idArticulo = articulo.Id;
+                datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)");
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.setearParametro("@ImagenUrl", nuevo.Imagen);
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
         public void modificar(Articulo modificar)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, idcategoria = @IdCategoria, Precio = @Precio where id = @Id");
+                datos.setearConsulta("update ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion, IdMarca = @IdMarca, idcategoria = @IdCategoria, Precio = @Precio  where id = @Id");
                 datos.setearParametro("@codigo", modificar.CodigoArticulo);
                 datos.setearParametro("@Nombre", modificar.Nombre);
                 datos.setearParametro("@Descripcion", modificar.Descripcion);
-                //datos.setearParametro("@Imagen", modificar.Imagen);
+                datos.setearParametro("@Imagen", modificar.Imagen);
                 datos.setearParametro("@IdMarca", modificar.Marca.Id);
                 datos.setearParametro("@IdCategoria", modificar.Categoria.Id);
                 datos.setearParametro("@Precio", modificar.Precio);
@@ -165,6 +192,29 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+        public void modificarImagen(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+               datos.setearConsulta("update IMAGENES set ImagenUrl = @imagenURL where IdArticulo = @idArticulo");
+                datos.setearParametro("@imagenURL", articulo.Imagen);
+                datos.setearParametro("@idArticulo", articulo.Id);
+                datos.ejecutarAccion();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
         public void eliminar(int id)
         {

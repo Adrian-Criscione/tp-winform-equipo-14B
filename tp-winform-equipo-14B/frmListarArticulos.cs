@@ -65,6 +65,7 @@ namespace tp_winform_equipo_14B
                 ListaArticulo = articulo.listar();
                 dgvListarArticulos.DataSource = ListaArticulo;
                 ocultarColumnas();
+                
                 pbxArticulo.Load(ListaArticulo[0].Imagen); //sirve para mostrar las imagenes pero se pincha el programa asi que hay que revisarlo por el momento no funcioan.
             }
             catch (Exception ex)
@@ -95,8 +96,10 @@ namespace tp_winform_equipo_14B
         {
             //seleccionar el articulo para pasarlo al constructor de la clase frmagregarArticulo
             Articulo seleccionado;
-
+            
             seleccionado = (Articulo)dgvListarArticulos.CurrentRow.DataBoundItem;
+
+                        
             frmAgregarArticulo modificarArticulo = new frmAgregarArticulo(seleccionado);
             modificarArticulo.ShowDialog();
             cargar();

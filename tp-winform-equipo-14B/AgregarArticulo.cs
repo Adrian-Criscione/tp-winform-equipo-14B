@@ -21,8 +21,10 @@ namespace tp_winform_equipo_14B
             //propiedades que se modifican para la ventana de modificar          
             Text = "Modificar Articulo";
             lblAgregarArticulo.Text = "Modificar Articulo";
+            //PARA MOSTRAR LA IMAGEN QUE TIENE IMAGENURL CARGADO.
+            txtImagen.Text = articulo.Imagen;
         }
-        //CONSTRUCTOR PAR VER IMAGENES
+        //CONSTRUCTOR PAR VER DETALLES
         public frmAgregarArticulo(Articulo articulo, string botonClickeado)
         {
             
@@ -55,33 +57,37 @@ namespace tp_winform_equipo_14B
         {
             this.Close();
         }
-        private bool soloNumeros(string cadena)
+        private bool ValidarPrecio()
         {
-            foreach (char caracter in cadena)
+            // Verifica si el campo está vacío
+            if (string.IsNullOrWhiteSpace(txtPrecio.Text))
             {
-                if (!(char.IsNumber(caracter)))
+                MessageBox.Show("El campo de precio no puede estar vacío.");
+                return false;
+            }
+
+            // Intenta convertir el valor a decimal
+            if (decimal.TryParse(txtPrecio.Text, out decimal precio))
+            {
+                // Verifica si el valor es 0 o mayor a 0
+                if (precio >= 0)
                 {
+                    // La validación fue exitosa
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("El precio no puede ser menor que 0.");
                     return false;
                 }
             }
-
-            return true;
-        }
-        private bool numerosMayores(string cadena)
-        {
-            // Intenta convertir la cadena a un número decimal
-            if (decimal.TryParse(cadena, out decimal numero))
+            else
             {
-                // Retorna true solo si el número es mayor o igual a cero
-                if(numero>=0)
-
-                return true;
-                
+                MessageBox.Show("Ingresar sólo números válidos en el precio por favor.");
+                return false;
             }
-
-            // Retorna false si la conversión falla (es decir, no es un número válido)
-            return false;
         }
+        
         private bool validarArticulos()
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
@@ -112,16 +118,9 @@ namespace tp_winform_equipo_14B
                 return true;
             }
             // validar el precio no sea vacio ni negativo
-            if (!(soloNumeros(txtPrecio.Text)))
-            {
-                MessageBox.Show("El campo Precio no puede estar vacío");
-                return true;
-            }
-            if(!(numerosMayores(txtPrecio.Text)))
-            {
-                MessageBox.Show("El campo Precio debe ser mayor a cero");
-                return true;
-            }
+
+            ValidarPrecio();
+           
             return false;
         }
         private void btnAgregarArticulo_Click(object sender, EventArgs e)
@@ -152,12 +151,14 @@ namespace tp_winform_equipo_14B
                 if (articulo.Id != 0)
                 {
                     negocio.modificar(articulo);
+                    negocio.modificarImagen(articulo);
                     MessageBox.Show("Articulo " + txtCodigo.Text + " modificado con éxito");
 
                 }
                 else
                 {
                     negocio.agregar(articulo);
+                    negocio.agregarImagen(articulo);
                     //metodo buscar idarticulo
                     //llamar agregarimagen articulo.Imagen
                     MessageBox.Show("Articulo " + txtCodigo.Text + " agregado con éxito");

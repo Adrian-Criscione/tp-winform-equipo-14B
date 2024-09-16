@@ -82,6 +82,8 @@
             this.Controls.Add(this.btnEliminarCat);
             this.Controls.Add(this.dgvListarCategoriasElim);
             this.Controls.Add(this.lblTituloElimCat);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEliminarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eliminar categoria";

@@ -101,7 +101,6 @@
             this.Controls.Add(this.btnModificarCat);
             this.Controls.Add(this.dgvListarCategorias);
             this.Controls.Add(this.lblTituloListarCategorias);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(449, 595);
             this.MinimizeBox = false;
